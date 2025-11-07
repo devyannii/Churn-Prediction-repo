@@ -49,7 +49,10 @@ if predictbutton:
 
     predicted = "Yes" if prediction ==1 else "No"
 
-    st.write("Predicted : {predicted}")
+    st.write(f"Predicted : {predicted}")
+
+
+
 
 else:
     st.write("Please enter the values and use predict button")
