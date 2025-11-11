@@ -24,7 +24,6 @@ st.divider()
 
 age = st.number_input("Enter Age" , min_value=10 , max_value=100 , value=30)
 
-gender = st.selectbox("Enter The Gender" , ["Male","Female"])
 
 tenure = st.number_input("Enter Tenure", min_value=0 , max_value = 130 , value= 10)
 
@@ -47,13 +46,11 @@ if predictbutton:
 
     prediction = model.predict(X_array)[0]
 
-    predicted = "Yes" if prediction ==1 else "No"
+    predicted = "Yes" if prediction == 1 else "No"
+
+    st.balloons()
 
     st.write(f"Predicted : {predicted}")
-
-
-
-
 else:
     st.write("Please enter the values and use predict button")
     
