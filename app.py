@@ -12,7 +12,7 @@ import joblib
 import numpy as np
 
 scaler = joblib.load("scaler.pkl")
-model = joblib.load("model.pkl")
+model = joblib.load("rf_model.pkl")
 
 st.title("Churn Prediction App")
 
@@ -36,23 +36,14 @@ st.divider()
 predictbutton = st.button("Predict")
 
 if predictbutton:
-    gender_selected = 1 if gender =="Female" else 0
+    gender_selected = 1 if gender == "Female" else 0
 
-    X = [age, gender_selected , tenure , monthlycharge]
+    X = [[age, gender_selected, tenure, monthlycharge]]
 
-    X1 = np.array(X)
-
-    X_array = scaler.transform([X1])
+    X_array = scaler.transform(X)
 
     prediction = model.predict(X_array)[0]
 
     predicted = "Yes" if prediction == 1 else "No"
 
-    st.balloons()
-
     st.write(f"Predicted : {predicted}")
-else:
-    st.write("Please enter the values and use predict button")
-    
-
-
